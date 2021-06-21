@@ -1,0 +1,10 @@
+*.zip
+*.pdf
+*.exe
+*.lib
+
+build
+.vscode
+__MACOSX
+submit
+ext
