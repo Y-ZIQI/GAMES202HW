@@ -1,22 +1,8 @@
-# GAMES202 homework0
+# Readme
 
-## Usage
+实现了ShadowMap，PCF，PCSS，以及两个光源的阴影和模型的移动。
 
-### For Visual Studio Code
-Install plugin `Live Sever` and run with `index.html` directly
+通过更改engine.js中的moving变量控制模型是否移动。
 
-### For Node.js users
-To install:
-```
-npm install http-server -g
-```
-To run(from `index.html` directory):
-```
-http-server . -p 8000
-```
+通过更改phongFragment.glsl中的ENABLE_LIGHT2宏定义来控制是否进行第二个光源的阴影计算。
 
-## In-web operation
-- Hold right mouse to rotate the camera
-- Scroll mouse wheel to zoom in/out
-- Hold left mouse to move the camera
-- Hold left mouse only to drag the GUI
