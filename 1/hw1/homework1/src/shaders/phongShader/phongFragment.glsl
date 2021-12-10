@@ -2,7 +2,7 @@
 precision mediump float;
 #endif
 
-//#define ENABLE_LIGHT2
+#define ENABLE_LIGHT2
 
 // Phong related variables
 uniform sampler2D uSampler;
@@ -17,10 +17,10 @@ varying highp vec3 vFragPos;
 varying highp vec3 vNormal;
 
 // Shadow map related variables
-#define NUM_SAMPLES 20
+#define NUM_SAMPLES 100
 #define BLOCKER_SEARCH_NUM_SAMPLES NUM_SAMPLES
 #define PCF_NUM_SAMPLES NUM_SAMPLES
-#define NUM_RINGS 5
+#define NUM_RINGS 10
 
 #define EPS 1e-3
 #define PI 3.141592653589793
@@ -187,14 +187,14 @@ vec3 blinnPhong() {
 }
 
 void main(void) {
-  poissonDiskSamples(vec2(0.0,0.0));
+  poissonDiskSamples(vTextureCoord);
   //uniformDiskSamples(vTextureCoord);
 
   float visibility = 1.0, visibility2 = 1.0;
   vec3 shadowCoordNDC = (vPositionFromLight.xyz / vPositionFromLight.w + 1.0) / 2.0;
   //visibility = useShadowMap(uShadowMap, vec4(shadowCoordNDC, 1.0));
-  visibility = PCF(uShadowMap, vec4(shadowCoordNDC, 1.0), 0.01);
-  //visibility = PCSS(uShadowMap, vec4(shadowCoordNDC, 1.0));
+  //visibility = PCF(uShadowMap, vec4(shadowCoordNDC, 1.0), 0.01);
+  visibility = PCSS(uShadowMap, vec4(shadowCoordNDC, 1.0));
 
 #if defined(ENABLE_LIGHT2)
   vec3 shadowCoordNDC2 = (vPositionFromLight2.xyz / vPositionFromLight2.w + 1.0) / 2.0;

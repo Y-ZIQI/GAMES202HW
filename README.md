@@ -5,6 +5,10 @@ GAMES202课程主页：https://sites.cs.ucsb.edu/~lingqi/teaching/games202.html
 
 GAMES论坛：https://games-cn.org/
 
+（p.s. 欢迎讨论:smile:
+
+qq 1502968498 微信 yangziqi1012
+
 ## Usage
 
 ### For Visual Studio Code

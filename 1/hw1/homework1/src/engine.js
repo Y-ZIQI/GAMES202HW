@@ -81,7 +81,7 @@ function GAMES202Main() {
 	createGUI();
 
 	var r = 50.0, angle = 0.0;
-	let moving = false;
+	let moving = true;
 
 	function mainLoop(now) {
 		cameraControls.update();
